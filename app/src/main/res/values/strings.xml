@@ -1,0 +1,11 @@
+<resources>
+    <string name="app_name">Fazt</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="name">Name</string>
+    <string name="code">Code</string>
+    <string name="book">{faw-book}</string>
+    <string name="enable_notifications">Enable Subject Notifications</string>
+
+</resources>

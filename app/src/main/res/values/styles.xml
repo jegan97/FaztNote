@@ -1,0 +1,33 @@
+<resources xmlns:tools="http://schemas.android.com/tools">
+
+    <style name="SplashTheme" parent="Theme.AppCompat.DayNight.NoActionBar">
+        <item name="android:windowBackground">@drawable/logosplash</item>
+    </style>
+
+    <style name="AppTheme" parent="Theme.AppCompat.Light.NoActionBar">
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorAccent">@color/colorAccent</item>
+        <item name="android:colorControlActivated" tools:targetApi="lollipop">@color/input_accent</item>
+        <item name="android:colorControlHighlight" tools:targetApi="lollipop">@color/input_accent</item>
+        <item name="android:windowDrawsSystemBarBackgrounds" tools:targetApi="lollipop">true</item>
+        <item name="android:statusBarColor" tools:targetApi="lollipop">@android:color/transparent</item>
+        <item name="android:windowTranslucentStatus">true</item>
+    </style>
+
+    <style name="TimeTableStyle" parent="Theme.AppCompat.Light.NoActionBar">
+        <item name="android:colorControlActivated" tools:targetApi="lollipop">@color/colorPrimary</item>
+        <item name="android:colorControlHighlight" tools:targetApi="lollipop">@color/colorPrimary</item>
+    </style>
+
+    <style name="SubjectSelect" parent="Theme.AppCompat.Light.NoActionBar">
+        <item name="android:colorControlActivated" tools:targetApi="lollipop">@color/darktealgreen</item>
+        <item name="android:colorControlHighlight" tools:targetApi="lollipop">@color/darktealgreen</item>
+    </style>
+
+    <style name="TextAppearance.App.TextInputLayout" parent="@android:style/TextAppearance">
+        <item name="android:textColor">@color/input_hint_color</item>
+        <item name="android:textSize">14sp</item>
+    </style>
+
+</resources>
