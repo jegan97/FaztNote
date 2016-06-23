@@ -1,6 +1,7 @@
 package com.example.jegansbeast.fazt;
 
 import android.content.Context;
+import android.content.Intent;
 import android.graphics.Color;
 import android.net.Uri;
 import android.os.Build;
@@ -13,6 +14,7 @@ import android.view.View;
 import android.widget.CheckBox;
 
 import com.example.jegansbeast.fazt.communication.SubjectItemMonitor;
+import com.example.jegansbeast.fazt.settings.SettingsActivity;
 import com.example.jegansbeast.fazt.subject.SubjectFragment;
 import com.example.jegansbeast.fazt.timetable.TimeTableFragment;
 import com.mikepenz.fontawesome_typeface_library.FontAwesome;
@@ -33,12 +35,15 @@ public class MainActivity extends AppCompatActivity implements SubjectFragment.O
     AccountHeader header;
     CollapsingToolbarLayout collapsingToolbarLayout;
     CheckBox enable_notification;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        setTheme(R.style.AppTheme);
         setContentView(R.layout.activity_main);
 
-        monitor= new SubjectItemMonitor(this);
+        if(monitor==null)
+            monitor= new SubjectItemMonitor(this);
 
         toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
@@ -53,6 +58,7 @@ public class MainActivity extends AppCompatActivity implements SubjectFragment.O
 
 
         toolbar.setTitleTextColor(Color.WHITE);
+
 
          header = new AccountHeaderBuilder().withActivity(this).withHeaderBackground(R.drawable.nav_image).build();
 
@@ -77,8 +83,8 @@ public class MainActivity extends AppCompatActivity implements SubjectFragment.O
                         transaction.replace(R.id.content_frame,timeTableFragment);
                     }
                     else if(drawerItem.getIdentifier()==3){
-//                        Intent intent = new Intent(context, SettingsActivity.class);
-//                        startActivity(intent);
+                        Intent intent = new Intent(context, SettingsActivity.class);
+                        startActivity(intent);
                     }
                 }
                 transaction.commit();

@@ -1,6 +1,62 @@
 <?xml version="1.0" encoding="utf-8"?>
 <PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
-    <ListPreference
+    <PreferenceCategory
+        android:title="General">
+        <CheckBoxPreference
+            android:title="Enable Alarm"
+            android:summary="alarm for notifications"
+            android:key="alarm"
+            android:checked="true"
+            />
 
-        />
+        <RingtonePreference
+            android:title="Alarm Tone"
+            android:key="alarmtone"
+            android:dependency="alarm"
+            />
+        <com.example.jegansbeast.fazt.settings.TimePreference
+            android:key="alarm_time"
+            android:title="Default Alarm Time"
+            android:dependency="alarm"
+            />
+    </PreferenceCategory>
+
+    <PreferenceCategory
+        android:title="TimeTable">
+        <com.example.jegansbeast.fazt.settings.TimePreference
+            android:title="day start"
+            android:key="start_time"
+            />
+        <ListPreference
+            android:title="Period Interval"
+            android:summary="%s"
+            android:key="duration"
+            android:entries="@array/duration_list"
+            android:entryValues="@array/duration_list"
+            />
+        <com.example.jegansbeast.fazt.settings.TimePreference
+            android:title="Lunch start"
+            android:key="lunch_time"
+            />
+        <ListPreference
+            android:title="Lunch Interval"
+            android:summary="%s"
+            android:key="lunch_duration"
+            android:entries="@array/duration_list"
+            android:entryValues="@array/duration_list"
+            />
+        <com.example.jegansbeast.fazt.settings.TimePreference
+            android:title="Interval start"
+            android:key="interval_time"
+            />
+        <ListPreference
+            android:title="Interval Duration"
+            android:summary="%s"
+            android:key="interval_duration"
+            android:entries="@array/interval_duration_list"
+            android:entryValues="@array/interval_duration_list"
+            />
+
+    </PreferenceCategory>
+
 </PreferenceScreen>

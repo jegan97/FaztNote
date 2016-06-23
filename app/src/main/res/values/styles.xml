@@ -4,6 +4,9 @@
         <item name="android:windowBackground">@drawable/logosplash</item>
     </style>
 
+    <style name="SettingsTheme" parent="Theme.AppCompat.DayNight.DarkActionBar">
+    </style>
+
     <style name="AppTheme" parent="Theme.AppCompat.Light.NoActionBar">
         <item name="colorPrimary">@color/colorPrimary</item>
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
