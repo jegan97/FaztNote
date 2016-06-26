@@ -60,7 +60,7 @@ public class ViewAdapter extends RecyclerView.Adapter<ViewHolder> {
         return subjectList.size();
     }
     public interface SubjectSelectionInteraction{
-        void selected(Subject subject);
+        void selected(Object subject);
     }
 }
 

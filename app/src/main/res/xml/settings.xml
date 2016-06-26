@@ -32,29 +32,7 @@
             android:summary="%s"
             android:key="duration"
             android:entries="@array/duration_list"
-            android:entryValues="@array/duration_list"
-            />
-        <com.example.jegansbeast.fazt.settings.TimePreference
-            android:title="Lunch start"
-            android:key="lunch_time"
-            />
-        <ListPreference
-            android:title="Lunch Interval"
-            android:summary="%s"
-            android:key="lunch_duration"
-            android:entries="@array/duration_list"
-            android:entryValues="@array/duration_list"
-            />
-        <com.example.jegansbeast.fazt.settings.TimePreference
-            android:title="Interval start"
-            android:key="interval_time"
-            />
-        <ListPreference
-            android:title="Interval Duration"
-            android:summary="%s"
-            android:key="interval_duration"
-            android:entries="@array/interval_duration_list"
-            android:entryValues="@array/interval_duration_list"
+            android:entryValues="@array/duration_list_values"
             />
 
     </PreferenceCategory>

@@ -3,17 +3,15 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_height="wrap_content"
     android:layout_width="match_parent"
-    android:clickable="true"
     android:foreground="?android:attr/selectableItemBackground"
     android:theme="@style/SubjectSelect"
     >
 <RelativeLayout
     android:orientation="vertical" android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:clickable="false"
-    android:background="#78be8b">
-
+    >
     <TextView
+        android:focusable="false"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceLarge"
@@ -23,12 +21,13 @@
         android:layout_marginLeft="10dp"
         android:layout_alignParentTop="true"
         android:layout_marginTop="15dp"
-        android:textColor="#ffffff"
+        android:textColor="#000000"
         android:textStyle="bold"
         android:textIsSelectable="false"
         android:layout_marginBottom="15dp" />
 
     <TextView
+        android:focusable="false"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceMedium"
@@ -40,7 +39,7 @@
         android:textStyle="italic"
         android:layout_marginRight="20dp"
         android:layout_marginTop="15dp"
-        android:textColor="#d2fdcb"
+        android:textColor="@color/abc_secondary_text_material_light"
         android:layout_alignBottom="@+id/sub_name" />
 
 </RelativeLayout>

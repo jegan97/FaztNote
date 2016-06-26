@@ -1,53 +1,46 @@
-package com.example.jegansbeast.fazt.subject;
-
-import com.example.jegansbeast.fazt.timetable.PositionComparable;
-import com.example.jegansbeast.fazt.timetable.TimePrefs;
+package com.example.jegansbeast.fazt.timetable;
 
 /**
- * Created by JEGAN'S BEAST on 6/17/2016.
+ * Created by JEGAN'S BEAST on 6/23/2016.
  */
-public class Subject implements PositionComparable{
-    private String title,code;
-    private Integer id=-1;
-    private Integer periodno = 0,listpos=0;
+public class OtherItem implements PositionComparable{
+    private String name;
+    private int duration=-1;
+    private Integer id;
+    private Integer pos;
+
 
     private String starttime,endtime;
     private int starthour,endhour;
     private int startmin,endmin;
     TimePrefs prefs;
 
-    public Subject(String title, String code) {
-        this.title = title;
-        this.code = code;
+    public OtherItem(){
+
     }
 
-    public Subject(int id, String sub_name, String sub_code) {
-        this.id = id;
-        title = sub_name;
-        code = sub_code;
+    public OtherItem(String name) {
+        this.name = name;
     }
 
-    public Subject(int id, String sub_name, String sub_code,int period) {
-        this.id = id;
-        title = sub_name;
-        code = sub_code;
-        periodno = period;
+    public String getName() {
+        return name;
     }
 
-    public String getTitle() {
-        return title;
+    public void setName(String name) {
+        if(name.equals("Break"))
+            setId(1);
+        else if(name.equals("Lunch"))
+            setId(2);
+        this.name = name;
     }
 
-    public void setTitle(String title) {
-        this.title = title;
+    public int getDuration() {
+        return duration;
     }
 
-    public String getCode() {
-        return code;
-    }
-
-    public void setCode(String code) {
-        this.code = code;
+    public void setDuration(int duration) {
+        this.duration = duration;
     }
 
     public Integer getId() {
@@ -60,10 +53,10 @@ public class Subject implements PositionComparable{
 
     @Override
     public Integer getPos() {
-        return periodno;
+        return pos;
     }
 
-    public String getStarttime() {
+    public String getStarttime(){
         return starttime;
     }
 
@@ -72,8 +65,8 @@ public class Subject implements PositionComparable{
         return endtime;
     }
 
-    public void setPos(int periodno) {
-        this.periodno = periodno;
+    public void setPos(Integer pos) {
+        this.pos = pos;
     }
 
     public int getStarthour() {
@@ -93,9 +86,9 @@ public class Subject implements PositionComparable{
     }
 
     public void setStartTime(String time) {
+        this.starttime = time;
         if(time!=null){
-            prefs= new TimePrefs(time);
-
+            prefs= new TimePrefs(starttime);
             starthour = prefs.getHour();
             startmin = prefs.getMin();
 
@@ -104,8 +97,8 @@ public class Subject implements PositionComparable{
 //                starthour -= 12;
 //                z=" pm";
 //            }
-                starttime = pad(starthour)+":"+pad(startmin);
 
+            starttime = pad(starthour)+":"+pad(startmin);
         }
     }
 
@@ -113,17 +106,15 @@ public class Subject implements PositionComparable{
         endmin = startmin + duration;
         int h=0;
         if(endmin>59){
-            h = endmin/60;
+             h = endmin/60;
             endmin = endmin - (h*60);
         }
         endhour = starthour + h;
-
 //        String z = " am";
 //        if(endhour>12){
 //            endhour -= 12;
 //            z=" pm";
 //        }
-
         endtime =  pad(endhour)+":"+pad(endmin);
     }
 
@@ -132,13 +123,5 @@ public class Subject implements PositionComparable{
             return String.valueOf(time);
         else
             return "0"+time;
-    }
-
-    public Integer getListpos() {
-        return listpos;
-    }
-
-    public void setListpos(Integer listpos) {
-        this.listpos = listpos;
     }
 }

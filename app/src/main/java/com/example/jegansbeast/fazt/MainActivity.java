@@ -2,12 +2,15 @@ package com.example.jegansbeast.fazt;
 
 import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.graphics.Color;
 import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
+import android.preference.PreferenceManager;
 import android.support.design.widget.CollapsingToolbarLayout;
 import android.support.v4.app.FragmentTransaction;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
@@ -28,13 +31,14 @@ import com.mikepenz.materialdrawer.model.PrimaryDrawerItem;
 import com.mikepenz.materialdrawer.model.interfaces.IDrawerItem;
 
 public class MainActivity extends AppCompatActivity implements SubjectFragment.OnFragmentInteractionListener,TimeTableFragment.OnFragmentInteractionListener{
-    Toolbar toolbar;
+    public Toolbar toolbar;
     Drawer drawer;
     Context context = this;
     SubjectItemMonitor monitor ;
     AccountHeader header;
     CollapsingToolbarLayout collapsingToolbarLayout;
     CheckBox enable_notification;
+    SharedPreferences preferences;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -45,7 +49,10 @@ public class MainActivity extends AppCompatActivity implements SubjectFragment.O
         if(monitor==null)
             monitor= new SubjectItemMonitor(this);
 
+        preferences = PreferenceManager.getDefaultSharedPreferences(this);
+
         toolbar = (Toolbar) findViewById(R.id.toolbar);
+
         setSupportActionBar(toolbar);
 
         collapsingToolbarLayout = (CollapsingToolbarLayout) findViewById(R.id.collapsing_toolbar);
@@ -78,9 +85,19 @@ public class MainActivity extends AppCompatActivity implements SubjectFragment.O
                         SubjectFragment subjectFragment = new SubjectFragment();
                         transaction.replace(R.id.content_frame,subjectFragment);
                     } else if (drawerItem.getIdentifier() == 2) {
-                        setTimeTableFragmentDetails();
-                        TimeTableFragment timeTableFragment = new TimeTableFragment();
-                        transaction.replace(R.id.content_frame,timeTableFragment);
+                        String start = preferences.getString("start_time","e");
+                        String duration = preferences.getString("duration","e");
+                        if(!start.equals("e") && !duration.equals("e")) {
+                            setTimeTableFragmentDetails();
+                            TimeTableFragment timeTableFragment = new TimeTableFragment();
+                            transaction.replace(R.id.content_frame, timeTableFragment);
+                        }
+                        else {
+                            AlertDialog.Builder builder = new AlertDialog.Builder(context);
+                            builder.setMessage("Please configure day start time and period duration in settings to proceed");
+                            builder.setCancelable(true);
+                            builder.create().show();
+                        }
                     }
                     else if(drawerItem.getIdentifier()==3){
                         Intent intent = new Intent(context, SettingsActivity.class);
@@ -111,6 +128,7 @@ public class MainActivity extends AppCompatActivity implements SubjectFragment.O
     }
 
     public void setSubjectFragmentDetails(){
+        setTheme(R.style.AppTheme);
         collapsingToolbarLayout.setTitle("Subjects");
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
             getWindow().setStatusBarColor(Color.parseColor("#00796B"));
@@ -140,6 +158,8 @@ public class MainActivity extends AppCompatActivity implements SubjectFragment.O
     }
 
     public void setTimeTableFragmentDetails(){
+
+        setTheme(R.style.TimeTableStyle);
         collapsingToolbarLayout.setTitle("TimeTable");
         toolbar.setTitle("TimeTable");
 

@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v7.widget.CardView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_height="wrap_content"
+    android:layout_width="match_parent"
+    android:clickable="true"
+    android:foreground="?android:attr/selectableItemBackground">
+
+<RelativeLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="#5a6890"
+    android:id="@+id/layout"
+    >
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="title"
+        android:id="@+id/title"
+        android:layout_marginStart="19dp"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginTop="20dp"
+        android:textColor="#c1c1c1" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:text="01:00"
+        android:id="@+id/sub_end"
+        android:layout_marginRight="20dp"
+        android:textColor="#c1c1c1"
+        android:layout_alignTop="@+id/sub_start"
+        android:layout_alignParentEnd="true"
+        android:layout_marginEnd="29dp" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:text="12:00"
+        android:id="@+id/sub_start"
+        android:textColor="#c1c1c1"
+        android:layout_below="@+id/title"
+        android:layout_toStartOf="@+id/sub_end"
+        android:layout_marginEnd="41dp"
+        android:layout_marginBottom="20dp" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceSmall"
+        android:text="-"
+        android:id="@+id/textView4"
+        android:layout_marginEnd="18dp"
+        android:textColor="#c1c1c1"
+        android:layout_alignBottom="@+id/sub_start"
+        android:layout_toStartOf="@+id/sub_end" />
+</RelativeLayout>
+
+</android.support.v7.widget.CardView>

@@ -102,6 +102,7 @@ public class SubjectFragment extends Fragment {
 
         listview.setAdapter(adapter);
 
+
         listview.addItemDecoration(new ListItemDecoration(getContext(),R.drawable.subjects_divider));
 
         listview.setLayoutManager(new LinearLayoutManager(v.getContext()));
