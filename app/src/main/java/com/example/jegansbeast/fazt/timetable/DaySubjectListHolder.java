@@ -32,8 +32,6 @@ public class DaySubjectListHolder extends RecyclerView.ViewHolder implements Vie
 
     public void setSubjectDetails(Subject subject){
 
-//        pos.setText(String.valueOf(subject.getPos()));
-
         name.setText(subject.getTitle());
 
         code.setText(subject.getCode());

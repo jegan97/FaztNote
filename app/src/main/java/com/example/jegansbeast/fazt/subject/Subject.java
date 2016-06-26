@@ -118,11 +118,6 @@ public class Subject implements PositionComparable{
         }
         endhour = starthour + h;
 
-//        String z = " am";
-//        if(endhour>12){
-//            endhour -= 12;
-//            z=" pm";
-//        }
 
         endtime =  pad(endhour)+":"+pad(endmin);
     }

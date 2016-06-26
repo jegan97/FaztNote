@@ -1,7 +1,6 @@
 package com.example.jegansbeast.fazt.timetable.inputdialog;
 
 import android.support.v7.widget.RecyclerView;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -27,7 +26,6 @@ public class ViewAdapter extends RecyclerView.Adapter<ViewHolder> {
     public ViewAdapter(SubjectSelectionInteraction interactor,Database.DAYS day){
         monitor = SubjectItemMonitor.getInstance();
         subjectList = monitor.getSubjectlist();
-        Log.d("subject",subjectList.size()+"");
         this.day = day;
         this.interactor = interactor;
     }
@@ -50,7 +48,6 @@ public class ViewAdapter extends RecyclerView.Adapter<ViewHolder> {
     public void onBindViewHolder(ViewHolder holder, int position) {
         holder.setSubjectDetails(subjectList.get(position));
         Subject subject = subjectList.get(position);
-        Log.d("subject added",subject.getTitle());
         holder.setSubjectDetails(subject);
     }
 

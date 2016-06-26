@@ -3,10 +3,8 @@ package com.example.jegansbeast.fazt.communication;
 import android.app.AlarmManager;
 import android.app.NotificationManager;
 import android.content.Context;
-import android.util.Log;
 
 import com.example.jegansbeast.fazt.Database;
-import com.example.jegansbeast.fazt.T;
 import com.example.jegansbeast.fazt.subject.Subject;
 import com.example.jegansbeast.fazt.timetable.OtherItem;
 import com.example.jegansbeast.fazt.timetable.PositionComparable;
@@ -47,7 +45,6 @@ public class SubjectItemMonitor {
 
     public void subjectInserted(int pos) {
         int id = db.insertSubject(subjectlist.get(pos));
-        Log.d("id", id + " set to " + subjectlist.get(pos).getTitle());
         subjectlist.get(pos).setId(id);
 
         for (SubjectItemObserver o : observers) {
@@ -90,7 +87,6 @@ public class SubjectItemMonitor {
                 }
             }
         }
-        T.logDatabase(res + " affected");
     }
 
     public void deleteItem(PositionComparable object, Database.DAYS day){
@@ -140,10 +136,6 @@ public class SubjectItemMonitor {
     }
 
     public List<Subject> getSubjectlist() {
-        Log.d("size", "sublist size " + subjectlist.size());
-//        for (Subject subject : subjectlist) {
-//          Log.d("adding",subject.getName());
-//        }
         return subjectlist;
     }
 
@@ -180,7 +172,6 @@ public class SubjectItemMonitor {
         for (Subject subject : subjectlist) {
             if (subject.getTitle() != null) {
                 list.add(subject.getTitle());
-                Log.d("getallnames", subject.getTitle());
             }
         }
         return list;

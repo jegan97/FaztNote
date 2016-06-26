@@ -92,12 +92,6 @@ public class OtherItem implements PositionComparable{
             starthour = prefs.getHour();
             startmin = prefs.getMin();
 
-//            String z = " am";
-//            if(starthour>12){
-//                starthour -= 12;
-//                z=" pm";
-//            }
-
             starttime = pad(starthour)+":"+pad(startmin);
         }
     }
@@ -110,11 +104,7 @@ public class OtherItem implements PositionComparable{
             endmin = endmin - (h*60);
         }
         endhour = starthour + h;
-//        String z = " am";
-//        if(endhour>12){
-//            endhour -= 12;
-//            z=" pm";
-//        }
+
         endtime =  pad(endhour)+":"+pad(endmin);
     }
 

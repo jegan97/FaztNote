@@ -8,7 +8,6 @@ import android.preference.CheckBoxPreference;
 import android.preference.Preference;
 import android.preference.PreferenceFragment;
 import android.preference.RingtonePreference;
-import android.util.Log;
 
 import com.example.jegansbeast.fazt.R;
 
@@ -52,7 +51,6 @@ public class MyPreferences extends PreferenceFragment implements Preference.OnPr
         else if(preference instanceof CheckBoxPreference){
             CheckBoxPreference checkBoxPreference = (CheckBoxPreference) preference;
             if((Boolean) newValue){
-                Log.d("checkbox",newValue.toString());
 
                 findPreference("alarmtone").setEnabled(true);
                 findPreference("alarm_time").setEnabled(true);

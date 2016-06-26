@@ -11,7 +11,6 @@ import android.support.v7.app.AlertDialog;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -93,7 +92,6 @@ public class SubjectFragment extends Fragment {
         add = (FloatingActionButton) v.findViewById(R.id.add);
         listview = (RecyclerView) v.findViewById(R.id.subject_list);
 
-        Log.d("list",listview+"");
 
         list = SubjectItemMonitor.getInstance().getSubjectlist();
 

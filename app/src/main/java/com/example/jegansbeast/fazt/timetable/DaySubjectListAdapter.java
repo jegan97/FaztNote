@@ -5,7 +5,6 @@ import android.content.SharedPreferences;
 import android.preference.PreferenceManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -59,7 +58,6 @@ public class DaySubjectListAdapter extends SelectableAdapter implements SubjectI
         start_time = preferences.getString("start_time", "empty");
         duration = Integer.parseInt(preferences.getString("duration", "e"));
 
-        Log.d("time","start "+start_time);
 
         toolbar = (Toolbar) ((MainActivity)context).findViewById(R.id.toolbar);
 

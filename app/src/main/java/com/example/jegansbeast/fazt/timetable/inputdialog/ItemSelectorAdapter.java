@@ -224,7 +224,6 @@ public class ItemSelectorAdapter extends BaseExpandableListAdapter implements Ad
                 break;
         }
 
-        T.toastShort(context,"item selected "+position+" duration set to "+other_item_duration);
     }
 
     @Override
@@ -235,10 +234,8 @@ public class ItemSelectorAdapter extends BaseExpandableListAdapter implements Ad
 
     @Override
     public boolean onChildClick(ExpandableListView parent, View v, int groupPosition, int childPosition, long id) {
-        T.toastShort(context,"clicked "+groupPosition+" "+childPosition);
         if(groupPosition==0){
             interactor.selected(dumper.getSubjectList().get(childPosition),mode);
-            T.toastShort(context,dumper.getSubjectList().get(childPosition).getTitle()+" is inserted");
         }
         return true;
     }

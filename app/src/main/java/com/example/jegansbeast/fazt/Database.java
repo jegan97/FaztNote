@@ -24,7 +24,6 @@ public class Database extends SQLiteOpenHelper {
 
     public Database(Context context) {
         super(context, "fastnote", null, 1);
-        Log.d("dbname", getDatabaseName());
     }
 
     public void recreate() {
@@ -194,7 +193,6 @@ public class Database extends SQLiteOpenHelper {
     }
 
     public boolean insertSubjectWithDay(DAYS day, Subject subject, int periodno) {
-        Log.d("insert", subject.getId() + "");
         int id = -1;
 
         if (subject.getId() != null)
@@ -260,7 +258,6 @@ public class Database extends SQLiteOpenHelper {
 
             if (otherItems != null) {
                 itemList.addAll(otherItems);
-                T.logDatabase("otheritems: " + itemList.toString());
             }
 
             Collections.sort(itemList, new Comparator<PositionComparable>() {
@@ -356,7 +353,6 @@ public class Database extends SQLiteOpenHelper {
                     cursor = db.rawQuery(select + "saturday')", null);
             }
 
-            Log.d("dbday", day.name());
 
             if (cursor != null && cursor.getCount() > 0) {
                 subjects = new LinkedList<>();
@@ -366,7 +362,6 @@ public class Database extends SQLiteOpenHelper {
                     String sub_name = cursor.getString(cursor.getColumnIndexOrThrow("name"));
                     String sub_code = cursor.getString(cursor.getColumnIndexOrThrow("code"));
                     int period = cursor.getInt(cursor.getColumnIndexOrThrow("periodno"));
-                    Log.d("db", "adding subject " + sub_name + " " + period);
                     Subject subject = new Subject(id, sub_name, sub_code);
                     subject.setPos(period);
                     subjects.add(subject);

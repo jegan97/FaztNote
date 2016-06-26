@@ -211,8 +211,6 @@ public class DayFragment extends Fragment implements ItemSelectorAdapter.ItemSel
             switch (item.getItemId()) {
 
                 case R.id.edit:
-                    T.toastShort(getContext(), "edit clicked");
-
                     setupBuilder(2);// update mode
                     dialog = builder.create();
                     dialog.show();

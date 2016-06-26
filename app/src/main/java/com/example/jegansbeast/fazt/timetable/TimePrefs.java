@@ -1,7 +1,5 @@
 package com.example.jegansbeast.fazt.timetable;
 
-import android.util.Log;
-
 /**
  * Created by JEGAN'S BEAST on 6/25/2016.
  */
@@ -34,7 +32,6 @@ public class TimePrefs {
        try {
            int h = Integer.parseInt(parts[0]);
            int m = Integer.parseInt(parts[1]);
-           Log.d("time","Splitted as "+parts[0]+" "+parts[1]);
            hour = h;
            min = m;
        }catch (NumberFormatException e){
